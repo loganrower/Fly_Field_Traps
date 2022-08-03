@@ -27,6 +27,7 @@ PI5="Pi5"
 PI6="Pi6"
 PI7="Pi7"
 PI8="Pi8"
+PI9="Pi9"
 
 # Made a directory for todays date:
 path=~/Desktop/Field_Trap_Exps
@@ -78,6 +79,11 @@ elif [ "$pi_num" = "$PI7" ]; then
 	echo $ip_new
 elif [ "$pi_num" = "$PI8" ]; then
 	ip_new=$(jq ".Pi8" $file)
+	echo $ip_new
+	ip_new=$(sed -e 's/^"//' -e 's/"$//' <<<"$ip_new")
+	echo $ip_new
+elif [ "$pi_num" = "$PI9" ]; then
+	ip_new=$(jq ".Pi9" $file)
 	echo $ip_new
 	ip_new=$(sed -e 's/^"//' -e 's/"$//' <<<"$ip_new")
 	echo $ip_new
